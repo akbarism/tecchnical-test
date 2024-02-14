@@ -4,7 +4,11 @@ import BreadcrumbDefault from '@/components/Breadcrumbs/BreadcrumbDefault.vue'
 import DefaultCard from '@/components/Forms/DefaultCard.vue'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 
+<<<<<<< HEAD
 import { ref, watch, computed } from 'vue'
+=======
+import { ref, watchEffect, watch, onMounted } from 'vue'
+>>>>>>> 1a740eb72e8a006e8392cdf25a9eb3e2f6ec96d3
 import province from '../../assets/js/province.js'
 import city from '../../assets/js/city.js'
 const provinces = ref(province)
@@ -51,8 +55,12 @@ watch(selectedProvince, (pronvinceID) => {
                                     <select v-model="selectedProvince"
                                         class="relative z-20 w-full px-5 py-3 text-black transition bg-transparent border rounded outline-none appearance-none border-stroke focus:border-primary active:border-primary ">
                                         <option value="" disabled selected>Type your subject</option>
+<<<<<<< HEAD
                                         <option v-for="(
                                         { name, id, index }) in provinces" :key="index" :value="id">
+=======
+                                        <option v-for="({ name, id, index }) in provinces" :key="index" :value="id">
+>>>>>>> 1a740eb72e8a006e8392cdf25a9eb3e2f6ec96d3
                                             {{ name }}
                                         </option>
                                     </select>

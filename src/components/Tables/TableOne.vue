@@ -133,34 +133,33 @@ const HandlePopup = (id) => {
           </div>
         </div>
       </div>
-      <Transition>
-        <div v-if="open" class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-50 rounded-xl ">
-          <!-- Modal content -->
-          <div class="p-8 bg-white drop-shadow-3 rounded w-[500px]">
-            <div class="flex flex-col items-end justify-end">
-              <button @click="open = false" class="">
-                <IconVue icon="charm:cross" class="text-[#FA1212] w-5 h-auto" />
-              </button>
+
+      <div v-if="open" class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-50 rounded-xl ">
+        <!-- Modal content -->
+        <div class="p-8 bg-white drop-shadow-3 rounded w-[500px]">
+          <div class="flex flex-col items-end justify-end">
+            <button @click="open = false" class="">
+              <IconVue icon="charm:cross" class="text-[#FA1212] w-5 h-auto" />
+            </button>
+          </div>
+          <div class="flex flex-row items-start justify-start">
+            <img :src="profile_picture" class="h-auto rounded-full w-31" :alt="first_name">
+            <div class="flex flex-col self-center justify-center pl-4">
+              <h1 class="text-[#080808] font-medium text-3xl">{{ first_name }} {{ last_name }}</h1>
+              <h1 class="text-[#080808] font-medium text-xs">{{ email }}</h1>
+              <h1 class="text-[#080808] font-medium text-xs">{{ phone }}</h1>
             </div>
-            <div class="flex flex-row items-start justify-start">
-              <img :src="profile_picture" class="h-auto rounded-full w-31" :alt="first_name">
-              <div class="flex flex-col self-center justify-center pl-4">
-                <h1 class="text-[#080808] font-medium text-3xl">{{ first_name }} {{ last_name }}</h1>
-                <h1 class="text-[#080808] font-medium text-xs">{{ email }}</h1>
-                <h1 class="text-[#080808] font-medium text-xs">{{ phone }}</h1>
-              </div>
-            </div>
-            <div class="flex flex-row items-start justify-start">
-              <div class="flex flex-col self-center justify-center pt-4">
-                <h1 class="text-[#080808] font-medium text-lg">Street: {{ street }}</h1>
-                <h1 class="text-[#080808] font-medium text-lg">City: {{ city }}</h1>
-                <h1 class="text-[#080808] font-medium text-lg">State: {{ state }}</h1>
-                <h1 class="text-[#080808] font-medium text-lg">Country: {{ country }}</h1>
-              </div>
+          </div>
+          <div class="flex flex-row items-start justify-start">
+            <div class="flex flex-col self-center justify-center pt-4">
+              <h1 class="text-[#080808] font-medium text-lg">Street: {{ street }}</h1>
+              <h1 class="text-[#080808] font-medium text-lg">City: {{ city }}</h1>
+              <h1 class="text-[#080808] font-medium text-lg">State: {{ state }}</h1>
+              <h1 class="text-[#080808] font-medium text-lg">Country: {{ country }}</h1>
             </div>
           </div>
         </div>
-      </Transition>
+      </div>
     </div>
   </div>
 </template>
