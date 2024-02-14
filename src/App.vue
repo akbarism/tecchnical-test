@@ -1,7 +1,14 @@
-<script setup></script>
+<script setup>
+import { useRoute } from "vue-router";
+import LayoutDefault from "./layouts/default.vue";
+</script>
 
 <template>
-  <div class="text-lg font-bold">Hallo Folks!</div>
+  <LayoutDefault>
+    <RouterView></RouterView>
+  </LayoutDefault>
 </template>
 
-<style scoped></style>
+<style scoped>
+@import "./style.css";
+</style>
