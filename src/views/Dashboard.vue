@@ -34,6 +34,15 @@ const statusList = ref([
   },
 ]);
 
+const formatDate = (dateString) => {
+  const options = { year: "numeric", month: "2-digit", day: "2-digit" };
+  const formattedDate = new Date(dateString).toLocaleDateString(
+    "en-US",
+    options
+  );
+  return formattedDate.replace(/\//g, " / "); // Add spaces around slashes
+};
+
 // Start of Get data from API
 
 watchEffect(async () => {
@@ -91,7 +100,7 @@ watchEffect(async () => {
           <tr v-for="(data, index) in usersData" :key="data.id">
             <td class="index">{{ index + 1 }}</td>
             <td class="name">{{ data.first_name + " " + data.last_name }}</td>
-            <td class="date">{{ data.date_of_birth }}</td>
+            <td class="date">{{ formatDate(data.date_of_birth) }}</td>
             <td class="email">{{ data.email }}</td>
             <td class="job">{{ data.job }}</td>
             <td class="country">{{ data.country }}</td>
@@ -135,7 +144,7 @@ watchEffect(async () => {
 
 .table_list .table tr td,
 .table_list .table tr th {
-  padding: 1em 2em;
+  padding: 1.2em 2em;
 }
 
 .table_list .table thead tr th {
