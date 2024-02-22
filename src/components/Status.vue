@@ -1,25 +1,33 @@
-<script setup></script>
+<script setup>
+defineProps({
+  status: String,
+  price: String,
+  percent: String,
+  month: String,
+  logo_status: String,
+});
+</script>
 
 <template>
   <div class="status">
     <div class="flex items-center justify-between">
-      <h1 class="status__info">Pending</h1>
+      <h1 class="status__info">{{ status }}</h1>
       <img
         src="/images/hara_status.svg"
         alt="icon overview"
         class="mr-3 block"
       />
     </div>
-    <h1 class="status__price">2.480,30</h1>
+    <h1 class="status__price">{{ price }}</h1>
     <div class="flex items-center justify-between mt-7">
       <div class="flex items-center">
         <img
-          src="/images/hara_status_up.svg"
+          :src="`/images/${logo_status}`"
           alt="icon overview"
           class="mr-3 block"
         />
-        <p class="status__percent">2,15%</p>
-        <h2 class="status__monthly ml-4">Last Month</h2>
+        <p class="status__percent">{{ percent }}</p>
+        <h2 class="status__monthly ml-4">{{ month }}</h2>
       </div>
       <div>
         <h1 class="status__view_more">View More</h1>
