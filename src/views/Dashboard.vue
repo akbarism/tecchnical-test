@@ -107,9 +107,9 @@ watchEffect(async () => {
             <td class="email">{{ data.email }}</td>
             <td class="job">{{ data.job }}</td>
             <td class="country">{{ data.country }}</td>
-            <td class="action">
-              <button>select</button>
-              <button>view detail</button>
+            <td class="action flex">
+              <button class="select mr-3 rounded-md">select</button>
+              <button class="detail rounded-md">view detail</button>
             </td>
           </tr>
         </tbody>
@@ -137,6 +137,7 @@ watchEffect(async () => {
 
 .table_list .table {
   width: 100%;
+
   /* text-align: center; */
 }
 
@@ -147,7 +148,7 @@ watchEffect(async () => {
 
 .table_list .table tr td,
 .table_list .table tr th {
-  padding: 1.2em 2em;
+  padding: 1.2em 1.5em;
 }
 
 .table_list .table thead tr th {
@@ -231,5 +232,21 @@ watchEffect(async () => {
   letter-spacing: 0em;
   text-align: left;
   color: #080808;
+}
+
+.table_list .table tbody tr td.action {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #080808;
+}
+
+.table_list .table tbody tr td.action button {
+  padding: 0.7em 0.875em;
+  background-color: white;
+  box-shadow: 0px 0px 4px 0px #00000040;
 }
 </style>
