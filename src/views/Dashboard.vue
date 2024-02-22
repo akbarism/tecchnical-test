@@ -5,7 +5,7 @@ import Status from "../components/Status.vue";
 
 const usersData = ref([]);
 const selectedUserData = ref(null);
-
+const show = ref(false);
 const statusList = ref([
   {
     id: 1,
@@ -38,6 +38,11 @@ const statusList = ref([
 
 const openDialog = (userData) => {
   selectedUserData.value = userData;
+  show.value = true;
+};
+
+const closeDialog = (value) => {
+  show.value = value;
 };
 
 const formatDate = (dateString) => {
@@ -70,6 +75,8 @@ watchEffect(async () => {
 });
 
 // End of Get Data from API
+
+console.log(show.value);
 </script>
 
 <template>
@@ -127,7 +134,12 @@ watchEffect(async () => {
 
   <!-- Start of Dialog -->
   <Transition>
-    <Dialog :userData="selectedUserData" />
+    <Dialog
+      :userData="selectedUserData"
+      :showData="show"
+      v-if="show"
+      @update:showData="closeDialog"
+    />
   </Transition>
 
   <!-- End of Dialog -->

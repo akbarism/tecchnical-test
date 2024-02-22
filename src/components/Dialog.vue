@@ -1,13 +1,25 @@
 <script setup>
+import { onMounted } from "vue";
+
 defineProps({
   userData: Object,
+  showData: Boolean,
 });
+
+const emits = defineEmits();
+
+function closeDialog() {
+  emits("update:showData", false);
+}
 </script>
 
 <template>
   <main class="main">
     <div v-if="userData" class="dialog">
       <h1>{{ userData.first_name }}</h1>
+      <button @click="closeDialog">
+        <img src="/images/hara_x.svg" alt="Close button" />
+      </button>
     </div>
     <div v-if="userData" class="backdrop"></div>
   </main>
