@@ -43,6 +43,7 @@ defineProps({
   padding: 1.5em;
   border-radius: 10px;
   width: 100%;
+  box-shadow: 0 0 3px 1px #727272;
 }
 
 .status .status__info {
