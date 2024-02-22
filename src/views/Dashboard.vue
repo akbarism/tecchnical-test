@@ -126,8 +126,9 @@ watchEffect(async () => {
   </main>
 
   <!-- Start of Dialog -->
-
-  <Dialog :userData="selectedUserData" />
+  <Transition>
+    <Dialog :userData="selectedUserData" />
+  </Transition>
 
   <!-- End of Dialog -->
 </template>
@@ -262,5 +263,16 @@ watchEffect(async () => {
   padding: 0.7em 0.875em;
   background-color: white;
   box-shadow: 0px 0px 4px 0px #00000040;
+}
+
+/* Transition style */
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
