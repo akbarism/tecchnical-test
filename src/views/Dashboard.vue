@@ -49,8 +49,6 @@ watchEffect(async () => {
     let data = await response.json();
 
     usersData.value = data.users;
-
-    console.log(usersData.value);
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -74,9 +72,9 @@ watchEffect(async () => {
         class="mr-4"
       />
     </section>
-    <section class="table_list p-4 rounded-md mr-4 mt-7">
+    <section class="table_list rounded-md mr-4 mt-7">
       <h1 class="table_info">User List</h1>
-      <table class="table mt-6">
+      <table class="table mt-6 mb-8">
         <thead>
           <tr>
             <th>ID</th>
@@ -91,8 +89,16 @@ watchEffect(async () => {
 
         <tbody>
           <tr v-for="(data, index) in usersData" :key="data.id">
-            <td>{{ index + 1 }}</td>
-            <td>{{ data.first_name + " " + data.last_name }}</td>
+            <td class="index">{{ index + 1 }}</td>
+            <td class="name">{{ data.first_name + " " + data.last_name }}</td>
+            <td class="date">{{ data.date_of_birth }}</td>
+            <td class="email">{{ data.email }}</td>
+            <td class="job">{{ data.job }}</td>
+            <td class="country">{{ data.country }}</td>
+            <td class="action">
+              <button>select</button>
+              <button>view detail</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -113,10 +119,92 @@ watchEffect(async () => {
   line-height: 21px;
   letter-spacing: 0em;
   text-align: left;
+  margin-left: 1.5em;
+  padding-top: 1.5em;
 }
 
 .table_list .table {
   width: 100%;
-  border: 1px solid black;
+  /* text-align: center; */
+}
+
+.table_list .table tr {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 4px 0px #00000033;
+}
+
+.table_list .table tr td,
+.table_list .table tr th {
+  padding: 1em 2em;
+}
+
+.table_list .table thead tr th {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #7c7c7c;
+}
+
+.table_list .table tbody tr td.index {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #686868;
+}
+
+.table_list .table tbody tr td.name {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #080808;
+}
+
+.table_list .table tbody tr td.date {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #686868;
+}
+
+.table_list .table tbody tr td.email {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #080808;
+}
+
+.table_list .table tbody tr td.job {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #686868;
+}
+
+.table_list .table tbody tr td.country {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #080808;
 }
 </style>
