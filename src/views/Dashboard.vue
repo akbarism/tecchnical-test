@@ -10,6 +10,7 @@ const statusList = ref([
     percent: "2,15%",
     month: "Last Month",
     logo_status: "hara_status_up.svg",
+    style: "up",
   },
   {
     id: 1,
@@ -18,6 +19,7 @@ const statusList = ref([
     percent: "1,10%",
     month: "Last Month",
     logo_status: "hara_status_down.svg",
+    style: "down",
   },
   {
     id: 1,
@@ -26,6 +28,7 @@ const statusList = ref([
     percent: "2,15%",
     month: "Last Month",
     logo_status: "hara_status_up.svg",
+    style: "up",
   },
 ]);
 </script>
@@ -41,6 +44,7 @@ const statusList = ref([
         :percent="status.percent"
         :month="status.month"
         :logo_status="status.logo_status"
+        :percent_style="status.style"
         class="mr-4"
       />
     </section>

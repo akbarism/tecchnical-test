@@ -5,6 +5,7 @@ defineProps({
   percent: String,
   month: String,
   logo_status: String,
+  percent_style: String,
 });
 </script>
 
@@ -26,7 +27,7 @@ defineProps({
           alt="icon overview"
           class="mr-3 block"
         />
-        <p class="status__percent">{{ percent }}</p>
+        <p class="status__percent" :class="percent_style">{{ percent }}</p>
         <h2 class="status__monthly ml-4">{{ month }}</h2>
       </div>
       <div>
@@ -70,7 +71,14 @@ defineProps({
   line-height: 12px;
   letter-spacing: 0em;
   text-align: left;
+}
+
+.status .status__percent.up {
   color: #4cbf93;
+}
+
+.status .status__percent.down {
+  color: #ee7c85;
 }
 
 .status .status__monthly {
