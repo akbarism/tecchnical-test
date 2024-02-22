@@ -1,11 +1,15 @@
-<script setup></script>
+<script setup>
+defineProps({
+  userData: Object,
+});
+</script>
 
 <template>
   <main class="main">
-    <div class="dialog">
-      <h1>Camilla</h1>
+    <div v-if="userData" class="dialog">
+      <h1>{{ userData.first_name }}</h1>
     </div>
-    <div class="backdrop"></div>
+    <div v-if="userData" class="backdrop"></div>
   </main>
 </template>
 

@@ -1,8 +1,10 @@
 <script setup>
 import { ref, watchEffect } from "vue";
+import Dialog from "../components/Dialog.vue";
 import Status from "../components/Status.vue";
 
 const usersData = ref([]);
+const selectedUserData = ref(null);
 
 const statusList = ref([
   {
@@ -33,6 +35,10 @@ const statusList = ref([
     style: "up",
   },
 ]);
+
+const openDialog = (userData) => {
+  selectedUserData.value = userData;
+};
 
 const formatDate = (dateString) => {
   const options = { year: "numeric", month: "2-digit", day: "2-digit" };
@@ -109,13 +115,21 @@ watchEffect(async () => {
             <td class="country">{{ data.country }}</td>
             <td class="action flex">
               <button class="select mr-3 rounded-md">select</button>
-              <button class="detail rounded-md">view detail</button>
+              <button @click="openDialog(data)" class="detail rounded-md">
+                view detail
+              </button>
             </td>
           </tr>
         </tbody>
       </table>
     </section>
   </main>
+
+  <!-- Start of Dialog -->
+
+  <Dialog :userData="selectedUserData" />
+
+  <!-- End of Dialog -->
 </template>
 
 <style scoped>
