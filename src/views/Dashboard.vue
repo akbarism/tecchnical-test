@@ -99,7 +99,10 @@ watchEffect(async () => {
         <tbody>
           <tr v-for="(data, index) in usersData" :key="data.id">
             <td class="index">{{ index + 1 }}</td>
-            <td class="name">{{ data.first_name + " " + data.last_name }}</td>
+            <td class="name">
+              <img :src="data.profile_picture" alt="" />
+              {{ data.first_name + " " + data.last_name }}
+            </td>
             <td class="date">{{ formatDate(data.date_of_birth) }}</td>
             <td class="email">{{ data.email }}</td>
             <td class="job">{{ data.job }}</td>
@@ -175,6 +178,19 @@ watchEffect(async () => {
   letter-spacing: 0em;
   text-align: left;
   color: #080808;
+
+  /* Adjust the image */
+
+  display: flex;
+  align-items: center;
+  /* ----------------- */
+}
+
+.table_list .table tbody tr td.name img {
+  margin-right: 1em;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
 }
 
 .table_list .table tbody tr td.date {
