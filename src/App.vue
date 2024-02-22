@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+
+console.log(route.path);
+</script>
 
 <template>
   <main class="main">
@@ -9,6 +15,7 @@
           <router-link
             to="/"
             class="link list-none p-3 text-black rounded-md flex items-center"
+            :class="{ active: route.path === '/' }"
             ><img
               src="/images/hara_dashboard.svg"
               alt="icon overview"
@@ -20,6 +27,7 @@
           <router-link
             to="/overview"
             class="link list-none p-3 text-black rounded-md flex items-center"
+            :class="{ active: route.path === '/overview' }"
           >
             <img
               src="/images/hara_overview.svg"
@@ -64,6 +72,10 @@
 }
 
 .aside ul li .link {
+  background-color: white;
+}
+
+.aside ul li .link.active {
   background-color: #e3f2fd;
 }
 
